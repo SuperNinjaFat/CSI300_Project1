@@ -2,6 +2,8 @@ drop database if exists test;
 create database test;
 use test;
 
+drop table if exists burl_heat_type;
+drop table if exists burl_heat_fuel;
 drop table if exists burl;
 
 create table burl(
@@ -45,6 +47,14 @@ Depreciation decimal(5,4),
 PropertyCenterPoint varchar(45),
 FID int
 );
+
+CREATE TABLE burl_heat_type
+  AS (SELECT HeatType, FID
+      FROM burl);
+
+CREATE TABLE burl_heat_fuel
+  AS (SELECT HeatFuel, FID
+      FROM burl);
 
 select * from burl
 
