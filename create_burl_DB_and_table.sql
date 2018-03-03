@@ -5,7 +5,7 @@ use test;
 drop table if exists burl_heat_type;
 drop table if exists burl_heat_fuel;
 drop table if exists burl;
-
+/*
 create table burl(
 acct int primary key,
 parcel varchar(45),
@@ -47,14 +47,50 @@ Depreciation decimal(5,4),
 PropertyCenterPoint varchar(45),
 FID int
 );
+*/
 
-CREATE TABLE burl_heat_type
-  AS (SELECT HeatType, FID
-      FROM burl);
+drop database if exists housearea;
+drop database if exists fuel;
+drop database if exists street;
+drop database if exists fueltype;
+drop database if exists housevalue;
+drop database if exists houseyear;
+/*
+create database housearea;
+create database fuel;
+create database street;
+create database fueltype;
+create database housevalue;
+create database houseyear;
 
-CREATE TABLE burl_heat_fuel
-  AS (SELECT HeatFuel, FID
-      FROM burl);
-
-select * from burl
-
+use housearea;
+use fuel;
+use street;
+use fueltype;
+use housevalue;
+use houseyear;
+*/
+CREATE TABLE b_fuel(
+HeatFuel TEXT,
+FID INT
+);
+CREATE TABLE b_fueltype(
+HeatType TEXT,
+FID INT
+);
+CREATE TABLE b_housearea(
+TotalGrossArea INT,
+FID INT
+);
+CREATE TABLE b_housevalue(
+CurrentValue INT,
+FID INT
+);
+CREATE TABLE b_houseyear(
+YearBlt INT,
+FID INT
+);
+CREATE TABLE b_street(
+StreetName INT,
+FID INT
+);
